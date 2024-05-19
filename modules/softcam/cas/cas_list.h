@@ -36,7 +36,7 @@ module_cas_t * mediaguard_cas_init(module_decrypt_t *decrypt);
 module_cas_t * nagra_cas_init(module_decrypt_t *decrypt);
 module_cas_t * videoguard_cas_init(module_decrypt_t *decrypt);
 module_cas_t * viaccess_cas_init(module_decrypt_t *decrypt);
-
+module_cas_t * tongfang_cas_init(module_decrypt_t *decrypt);
 cas_init_t cas_init_list[] =
 {
     bulcrypt_cas_init,
@@ -51,5 +51,6 @@ cas_init_t cas_init_list[] =
     nagra_cas_init,
     videoguard_cas_init,
     viaccess_cas_init,
+    tongfang_cas_init,
     NULL
 };
