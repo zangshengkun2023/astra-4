@@ -1,0 +1,359 @@
+adapter_11 = dvb_tune({
+    adapter = "11",
+    type = "C",
+    frequency = "315",
+    symbolrate = "6875",
+    modulation = "QAM64",
+})
+adapter_10 = dvb_tune({
+    adapter = "10",
+    type = "C",
+    frequency = "355",
+    symbolrate = "6875",
+    modulation = "QAM64",
+})
+adapter_9 = dvb_tune({
+    adapter = "9",
+    type = "C",
+    frequency = "443",
+    symbolrate = "6875",
+    modulation = "QAM64",
+})
+adapter_8 = dvb_tune({
+    adapter = "8",
+    type = "C",
+    frequency = "459",
+    symbolrate = "6875",
+    modulation = "QAM64",
+})
+adapter_7 = dvb_tune({
+    adapter = "7",
+    type = "C",
+    frequency = "251",
+    symbolrate = "6875",
+    modulation = "QAM64",
+})
+adapter_6 = dvb_tune({
+    adapter = "6",
+    type = "C",
+    frequency = "506",
+    symbolrate = "6875",
+    modulation = "QAM64",
+})
+adapter_5 = dvb_tune({
+    adapter = "5",
+    type = "C",
+    frequency = "307",
+    symbolrate = "6875",
+    modulation = "QAM64",
+})
+adapter_4 = dvb_tune({
+    adapter = "4",
+    type = "C",
+    frequency = "267",
+    symbolrate = "6875",
+    modulation = "QAM64",
+})
+adapter_3 = dvb_tune({
+    adapter = "3",
+    type = "C",
+    frequency = "299",
+    symbolrate = "6875",
+    modulation = "QAM64",
+})
+adapter_2 = dvb_tune({
+    adapter = "2",
+    type = "C",
+    frequency = "514",
+    symbolrate = "6875",
+    modulation = "QAM64",
+})
+adapter_1 = dvb_tune({
+    adapter = "1",
+    type = "C",
+    frequency = "275",
+    symbolrate = "6875",
+    modulation = "QAM64",
+})
+adapter_0 = dvb_tune({
+    adapter = "0",
+    type = "C",
+    frequency = "267",
+    symbolrate = "6875",
+    modulation = "QAM64",
+})
+reader_0 = newcamd({
+    name = "Reader #0",
+    host = "127.0.0.1",
+    port = 10086,
+    user = "3",
+    pass = "3",
+    key  = "000102030405060708090A0B0C0D",
+    caid = "4A02",
+})
+make_channel({
+        name = "jykt3",
+        input = {
+                "dvb://adapter_7#pnr=155&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2003",
+	"http://192.168.0.150:2000/20016/"
+        }
+})
+make_channel({
+        name = "GZWS-HD16",
+        input = {
+                "dvb://adapter_4#pnr=361&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2016",
+	"http://192.168.0.150:2000/2003/"
+        }
+})
+make_channel({
+        name = "SCWS-HD5",
+        input = {
+                "dvb://adapter_4#pnr=364&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2005",
+	"http://192.168.0.150:2000/2004/"
+        }
+})
+make_channel({
+        name = "YNWS-HD27",
+        input = {
+                "dvb://adapter_4#pnr=362&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2027",
+	"http://192.168.0.150:2000/2005/"
+        }
+})
+
+make_channel({
+        name = "CQWS",
+        input = {
+                "dvb://adapter_3#pnr=302&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2008",
+	"http://192.168.0.150:2000/2006/"
+        }
+})
+make_channel({
+        name = "SXWS7",
+        input = {
+                "dvb://adapter_3#pnr=304&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2007",
+	"http://192.168.0.150:2000/2007/"
+        }
+})
+make_channel({
+        name = "SXWS9",
+        input = {
+                "dvb://adapter_3#pnr=301&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2009",
+	"http://192.168.0.150:2000/2008/"
+        }
+})
+
+make_channel({
+        name = "GSWS12",
+        input = {
+                "dvb://adapter_5#pnr=312&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2012",
+	"http://192.168.0.150:2000/2002/"
+        }
+})
+make_channel({
+        name = "NMGWS10",
+        input = {
+                "dvb://adapter_5#pnr=313&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2010",
+	"http://192.168.0.150:2000/2009/"
+        }
+})
+make_channel({
+        name = "NXWS11",
+        input = {
+                "dvb://adapter_5#pnr=314&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2011",
+	"http://192.168.0.150:2000/2010/"
+        }
+})
+
+
+
+
+
+make_channel({
+        name = "CCTV-11-14",
+        input = {
+                "dvb://adapter_11#pnr=115&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2014",
+	"http://192.168.0.150:2000/2011/"
+        }
+})
+make_channel({
+        name = "cctv-15-13",
+        input = {
+                "dvb://adapter_11#pnr=117&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2013",
+	"http://192.168.0.150:2000/2012/"
+        }
+})
+
+
+
+make_channel({
+        name = "cctv-13-18",
+        input = {
+                "dvb://adapter_10#pnr=146&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2018",
+	"http://192.168.0.150:2000/2013/"
+        }
+})
+
+
+make_channel({
+        name = "HNWS-29",
+        input = {
+                "dvb://adapter_9#pnr=277&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2029",
+	"http://192.168.0.150:2000/2014/"
+        }
+})
+make_channel({
+        name = "QHWS-30",
+        input = {
+                "dvb://adapter_9#pnr=273&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2030",
+	"http://192.168.0.150:2000/2015/"
+        }
+})
+make_channel({
+        name = "XJWS-28",
+        input = {
+                "dvb://adapter_9#pnr=274&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2028",
+	"http://192.168.0.150:2000/2016/"
+        }
+})
+
+make_channel({
+        name = "CCTV2-HD 31",
+        input = {
+                "dvb://adapter_8#pnr=494&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2031",
+	"http://192.168.0.150:2000/2017/"
+        }
+})
+make_channel({
+        name = "CCTV3-HD 32",
+        input = {
+                "dvb://adapter_8#pnr=491&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2032",
+	"http://192.168.0.150:2000/2018/"
+        }
+})
+make_channel({
+        name = "CCTV4-HD 33",
+        input = {
+                "dvb://adapter_8#pnr=495&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2033",
+	"http://192.168.0.150:2000/2019/"
+        }
+})
+make_channel({
+        name = "CCTV6-HD 34",
+        input = {
+                "dvb://adapter_8#pnr=492&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2034",
+	"http://192.168.0.150:2000/2020/"
+        }
+})
+make_channel({
+        name = "CCTV8-HD 35",
+        input = {
+                "dvb://adapter_8#pnr=493&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2035",
+	"http://192.168.0.150:2000/2021/"
+        }
+})
+
+
+
+make_channel({
+        name = "NNDSSH 47",
+        input = {
+                "dvb://adapter_6#pnr=2112&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2047",
+	"http://192.168.0.150:2000/2022/"
+        }
+})
+make_channel({
+        name = "NNGG 48",
+        input = {
+                "dvb://adapter_6#pnr=2114&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2048",
+	"http://192.168.0.150:2000/2023/"
+        }
+})
+make_channel({
+        name = "NNYSYL 49",
+        input = {
+                "dvb://adapter_6#pnr=2113&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2049",
+	"http://192.168.0.150:2000/2024/"
+        }
+})
+make_channel({
+        name = "NNXWZH 50",
+        input = {
+                "dvb://adapter_6#pnr=2111&cam=reader_0",
+        },
+        output = {
+                "udp://br0@239.0.0.2:2050",
+	"http://192.168.0.150:2000/2025/"
+        }
+})
