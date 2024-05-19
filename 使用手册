@@ -1,0 +1,42 @@
+git clone xxx代码下来后
+./configure.sh  --with-libdvbcsa
+make
+即可得到astra可执行文件了。
+chmod 777 astra
+把刚才的广西dvb-c样本复制一份根据需要修改
+
+
+adapter_11 = dvb_tune({
+    adapter = "11",
+    type = "C",
+    frequency = "315",
+    symbolrate = "6875",
+    modulation = "QAM64",
+})
+//中文注释记得删除 上面的11改成自己ls /dev/dvb/里面看到的adapter数字 我这里机器有12个高频头0-11 这是最后一个 315是频点 6875是符号率
+//QAM64是调制方式，如果实在不会，自己装个tvh或者astra5的版本自己先去搞明白自己那里的参数吧。
+reader_0 = newcamd({
+    name = "Reader #0",
+    host = "127.0.0.1",
+    port = 10086,
+    user = "3",
+    pass = "3",
+    key  = "000102030405060708090A0B0C0D",
+    caid = "4A02",
+})
+//这是newcamd的连接器，读卡是本机的oscam读的。
+make_channel({
+        name = "jykt3",
+        input = {
+                "dvb://adapter_7#pnr=155&cam=reader_0",
+        },
+        output = {
+        "udp://br0@239.0.0.2:2003",
+	    "http://192.168.0.150:2000/20016/"
+        }
+})
+//输出流配置 频道名称 输入的设备是7号高频头，节目的pnr是155，不会先用带web界面的astra去看，后面跟上newcam的连接器
+//输出2个配置，一个是组播，一个是单播
+
+
+完成后./astra guangxi 就可以测试了。可以看到信号锁定及节目解码输出的信息。
